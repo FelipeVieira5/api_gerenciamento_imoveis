@@ -65,7 +65,7 @@ router.delete('/enderecos/:enderecoId', (requisicao, resposta) => {
 });
 
 router.get('/enderecos/:enderecoId', async (requisicao, resposta) => {
-    const codigoEndereco = requisicao.params.codigoEndereco;
+    const codigoEndereco = requisicao.params.enderecoId;
     resposta.json(await Enderecos.findByPk(codigoEndereco));
 });
 

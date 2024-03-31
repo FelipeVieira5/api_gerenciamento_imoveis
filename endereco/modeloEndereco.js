@@ -1,4 +1,6 @@
 const Sequelize = require('sequelize');
+const conexao = require('../conexao/conexao');
+
 const Endereco = conexao.define('enderecos', {
     codEndereco: {
         type: Sequelize.INTEGER,
@@ -34,8 +36,8 @@ const Endereco = conexao.define('enderecos', {
     timestamps: false
 });
 
-Usuario.sync({
+Endereco.sync({
     alter: true
 });
 
-module.exports = Usuario;
+module.exports = Endereco;

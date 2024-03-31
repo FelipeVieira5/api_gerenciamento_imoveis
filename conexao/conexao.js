@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 
-const conexao = new Sequelize('nodejs', 'root', 'Santos$1001', {
+const conexao = new Sequelize('nodejs', 'root_01', 'root', {
     host: '127.0.0.1',
     dialect: 'mysql',
-    port: '3307'
+    port: '3306'
 });
 
 conexao.authenticate().then(() => {
