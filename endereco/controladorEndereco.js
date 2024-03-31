@@ -7,6 +7,11 @@ router.get('/enderecos', async (requisicao, resposta) => {
     resposta.send(endereco);
 });
 
+router.get('/enderecos/:enderecoId', async (req, res) => {
+    const codigoEndereco = req.params.enderecoId;
+    res.json(await Enderecos.findByPk(codigoEndereco));
+});
+
 router.post('/enderecos', (req, res) => {
     Enderecos.create({
         estado: req.body.estado,
@@ -48,11 +53,6 @@ router.delete('/enderecos/:enderecoId', (req, res) => {
     }).catch((erro) => {
         res.send('Ocorreu um erro: ' + erro);
     });
-});
-
-router.get('/enderecos/:enderecoId', async (req, res) => {
-    const codigoEndereco = req.params.enderecoId;
-    res.json(await Enderecos.findByPk(codigoEndereco));
 });
 
 module.exports = router;
