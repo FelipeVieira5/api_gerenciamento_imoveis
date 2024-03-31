@@ -7,66 +7,52 @@ router.get('/enderecos', async (requisicao, resposta) => {
     resposta.send(endereco);
 });
 
-router.post('/enderecos', (requisicao, resposta) => {
-    const estado = requisicao.body.estado;
-    const cidade = requisicao.body.cidade;
-    const bairro = requisicao.body.bairro;
-    const rua = requisicao.body.rua;
-    const complemento = requisicao.body.complemento;
-    const cep = requisicao.body.cep;
-
+router.post('/enderecos', (req, res) => {
     Enderecos.create({
-        estado: estado,
-        cidade: cidade,
-        bairro: bairro,
-        rua: rua,
-        complemento: complemento,
-        cep: cep,
+        estado: req.body.estado,
+        cidade: req.body.cidade,
+        bairro: req.body.bairro,
+        rua: req.body.rua,
+        complemento: req.body.complemento,
+        cep: req.body.cep,
     }).then(() => {
-        resposta.send('Endereco cadastrado com sucesso.');
+        res.send('Endereco cadastrado com sucesso.');
     }).catch((erro) => {
-        resposta.send('Ocorreu um erro: ' + erro);
+        res.send('Ocorreu um erro: ' + erro);
     });
 });
 
-router.put('/enderecos/:enderecoId', (requisicao, resposta) => {
-    const codigoEndereco = requisicao.params.enderecoId;
-    const estado = requisicao.body.estado;
-    const cidade = requisicao.body.cidade;
-    const bairro = requisicao.body.bairro;
-    const rua = requisicao.body.rua;
-    const complemento = requisicao.body.complemento;
-    const cep = requisicao.body.cep;
+router.put('/enderecos/:enderecoId', (req, res) => {
     Enderecos.update({
-        estado: estado,
-        cidade: cidade,
-        bairro: bairro,
-        rua: rua,
-        complemento: complemento,
-        cep: cep,
+        estado: req.body.estado,
+        cidade: req.body.cidade,
+        bairro: req.body.bairro,
+        rua: req.body.rua,
+        complemento: req.body.complemento,
+        cep: req.body.cep,
     }, {
         where: {
             codEndereco: codigoEndereco
         }
     }).then(() => {
-        resposta.send('Endereco atualizado com sucesso.');
+        res.send('Endereco atualizado com sucesso.');
     }).catch((erro) => {
-        resposta.send('Ocorreu um erro: ' + erro);
+        res.send('Ocorreu um erro: ' + erro);
     });
 });
 
-router.delete('/enderecos/:enderecoId', (requisicao, resposta) => {
-    const codigoEndereco = requisicao.params.codigoEndereco;
+router.delete('/enderecos/:enderecoId', (req, res) => {
+    const codigoEndereco = req.params.codigoEndereco;
     Enderecos.destroy({ where: { codEndereco: codigoEndereco } }).then(() => {
-        resposta.send('Endereco removido com sucesso.');
+        res.send('Endereco removido com sucesso.');
     }).catch((erro) => {
-        resposta.send('Ocorreu um erro: ' + erro);
+        res.send('Ocorreu um erro: ' + erro);
     });
 });
 
-router.get('/enderecos/:enderecoId', async (requisicao, resposta) => {
-    const codigoEndereco = requisicao.params.enderecoId;
-    resposta.json(await Enderecos.findByPk(codigoEndereco));
+router.get('/enderecos/:enderecoId', async (req, res) => {
+    const codigoEndereco = req.params.enderecoId;
+    res.json(await Enderecos.findByPk(codigoEndereco));
 });
 
 module.exports = router;
