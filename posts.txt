@@ -20,3 +20,12 @@
   "codTipoImovel": 1,
   "codEndereco": 1
 }
+
+// - Proprietario -
+{
+  "nome": "Felipe Vieira",
+  "CPF": "10616294905",
+  "CNPJ": "TESTEFODASE",
+  "codEndereco": 1,
+  "dataNascimento": "06/03/2024"
+}

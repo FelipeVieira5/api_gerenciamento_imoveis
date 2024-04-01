@@ -2,9 +2,9 @@ const express = require('express');
 const Proprietario = require('./modeloProprietario');
 
 const router = express.Router();
-router.get('/proprietario', async (requisicao, resposta) => {
+router.get('/proprietario', async (req, res) => {
     const proprietario = await Proprietario.findAll();
-    resposta.send(proprietario);
+    res.send(proprietario);
 });
 
 router.get('/proprietario/:propId', async (req, res) => {
