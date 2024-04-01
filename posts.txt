@@ -1,0 +1,22 @@
+// - Endereço -
+{
+  "estado": "SC",
+  "cidade": "Joinville",
+  "bairro": "Não Sei",
+  "rua": "Rua dos Pinheiros",
+  "complemento": "Apartamento 101",
+  "cep": "12345678"
+}
+
+// - Tipo de imovel -
+{
+  "descricao": "Teste de tipo de imovel alterado"
+}
+
+// - Imovel -
+{
+  "descricao": "imovel top",
+  "areaMetros": 123.4,
+  "codTipoImovel": 1,
+  "codEndereco": 1
+}

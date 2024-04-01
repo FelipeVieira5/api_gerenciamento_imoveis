@@ -9,6 +9,9 @@ meuServidor.use(rotasEnderecos);
 const rotasTiposImoveis = require('./tipoImovel/controladorTipoImovel');
 meuServidor.use(rotasTiposImoveis);
 
+const rotasImoveis = require('./imovel/controladorImovel');
+meuServidor.use(rotasImoveis);
+
 meuServidor.listen(4300, () => {
     console.log('Meu primeiro servidor na porta 4300.');
 });
