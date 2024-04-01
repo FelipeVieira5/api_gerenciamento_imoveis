@@ -8,11 +8,11 @@ router.get('/tipoImovel', async (requisicao, resposta) => {
 });
 
 router.get('/tipoImovel/:tipoId', async (req, res) => {
-    const codigoTipoImovel = req.params.enderecoId;
+    const codigoTipoImovel = req.params.tipoId;
     res.json(await TipoImovel.findByPk(codigoTipoImovel));
 });
 
-router.post('/enderecos', (req, res) => {
+router.post('/tipoImovel', (req, res) => {
     TipoImovel.create({
         descricao: req.body.descricao
     }).then(() => {
@@ -23,6 +23,7 @@ router.post('/enderecos', (req, res) => {
 });
 
 router.put('/tipoImovel/:tipoId', (req, res) => {
+    const codigoTipoImovel = req.params.tipoId;
     TipoImovel.update({
         descricao: req.body.descricao
     }, {
@@ -37,7 +38,7 @@ router.put('/tipoImovel/:tipoId', (req, res) => {
 });
 
 router.delete('/tipoImovel/:tipoId', (req, res) => {
-    const codigoTipoImovel = req.params.codigoTipoImovel;
+    const codigoTipoImovel = req.params.tipoId;
     TipoImovel.destroy({ where: { codTipoImovel: codigoTipoImovel } }).then(() => {
         res.send('Tipo de imovel removido com sucesso.');
     }).catch((erro) => {

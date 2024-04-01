@@ -28,6 +28,7 @@ router.post('/enderecos', (req, res) => {
 });
 
 router.put('/enderecos/:enderecoId', (req, res) => {
+    const codigoEndereco = req.params.enderecoId;
     Enderecos.update({
         estado: req.body.estado,
         cidade: req.body.cidade,
