@@ -1,31 +1,30 @@
 const Sequelize = require('sequelize');
 const conexao = require('../conexao/conexao');
-const TipoImovel = require('../tipoImovel/modeloTipoImovel');
 const Endereco = require('../endereco/modeloEndereco')
 
-const Imovel = conexao.define('imoveis', {
-    codImovel: {
+const Cliente = conexao.define('clientes', {
+    codCliente: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
     },
-    descricao: {
-        type: Sequelize.STRING(400),
+    nome: {
+        type: Sequelize.STRING(150),
         allowNull: false
     },
-    areaMetros:{
-        type: Sequelize.FLOAT,
-        allowNull: false
-    },
-    codTipoImovel: {
-        type: Sequelize.INTEGER,
+    CPF:{
+        type: Sequelize.STRING(11),
         allowNull: false,
-        references: {
-            model: TipoImovel,
-            key: 'codTipoImovel',
-        },
-        onDelete: 'CASCADE'
+        unique: true
+    },
+    CNPJ:{
+        type: Sequelize.STRING(14),
+        allowNull: false
+    },
+    dataNascimento:{
+        type: Sequelize.DATE,
+        allowNull: false
     },
     codEndereco: {
         type: Sequelize.INTEGER,
@@ -40,8 +39,8 @@ const Imovel = conexao.define('imoveis', {
     timestamps: false
 });
 
-Imovel.sync({
+Cliente.sync({
     alter: true
 });
 
-module.exports = Imovel;
+module.exports = Cliente;

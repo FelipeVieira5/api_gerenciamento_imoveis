@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const conexao = require('../conexao/conexao');
 
-const TipoImovel = conexao.define('tipoImovel', {
+const TipoImovel = conexao.define('tipoimoveis', {
     codTipoImovel: {
         type: Sequelize.INTEGER,
         allowNull: false,

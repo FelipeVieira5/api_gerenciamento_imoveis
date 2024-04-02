@@ -34,7 +34,7 @@ router.put('/imovel/:imovelId', (req, res) => {
         codEndereco: req.body.codEndereco
     }, {
         where: {
-            codTipoImovel: codigoImovel
+            codImovel: codigoImovel
         }
     }).then(() => {
         res.send('Imovel atualizado com sucesso.');
@@ -45,7 +45,7 @@ router.put('/imovel/:imovelId', (req, res) => {
 
 router.delete('/imovel/:imovelId', (req, res) => {
     const codigoImovel = req.params.imovelId;
-    Imovel.destroy({ where: { codTipoImovel: codigoImovel } }).then(() => {
+    Imovel.destroy({ where: { codImovel: codigoImovel } }).then(() => {
         res.send('Imovel removido com sucesso.');
     }).catch((erro) => {
         res.send('Ocorreu um erro: ' + erro);

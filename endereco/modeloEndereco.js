@@ -30,7 +30,8 @@ const Endereco = conexao.define('enderecos', {
     },
     cep: {
         type: Sequelize.STRING(8),
-        allowNull: false
+        allowNull: false,
+        unique:true
     }
 }, {
     timestamps: false
