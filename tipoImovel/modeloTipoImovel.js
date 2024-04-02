@@ -16,4 +16,7 @@ const TipoImovel = conexao.define('tipoimoveis', {
     timestamps: false
 });
 
+TipoImovel.sync({ force: false });
+
+
 module.exports = TipoImovel;

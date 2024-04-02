@@ -1,52 +1,52 @@
 const express = require('express');
-const Visita = require('./modeloVisita');
+const Historico = require('./modeloHistorico');
 
 const router = express.Router();
-router.get('/visita', async (req, res) => {
-    const visita = await Visita.findAll();
-    res.send(visita);
+router.get('/historico', async (req, res) => {
+    const historico = await Historico.findAll();
+    res.send(historico);
 });
 
-router.get('/visita/:visitaId', async (req, res) => {
-    const codigoVisita = req.params.visitaId;
-    res.json(await Visita.findByPk(codigoVisita));
+router.get('/historico/:historicoId', async (req, res) => {
+    const codigoHistorico = req.params.historicoId;
+    res.json(await Historico.findByPk(codigoHistorico));
 });
 
-router.post('/visita', (req, res) => {
-    Visita.create({
-        descricao: req.body.descricao,
-        areaMetros: req.body.areaMetros,
-        codTipoVisita: req.body.codTipoVisita,
-        codEndereco: req.body.codEndereco
+router.post('/historico', (req, res) => {
+    Historico.create({
+        codImovel: req.body.codImovel,
+        codCorretor: req.body.codCorretor,
+        dataNegociacao: req.body.dataNegociacao,
+        porcentualCommisao: req.body.porcentualCommisao
     }).then(() => {
-        res.send('Visita cadastrado com sucesso.');
+        res.send('Historico cadastrado com sucesso.');
     }).catch((erro) => {
         res.send('Ocorreu um erro: ' + erro);
     });
 });
 
-router.put('/visita/:visitaId', (req, res) => {
-    const codigoVisita = req.params.visitaId;
-    Visita.update({
-        descricao: req.body.descricao,
-        areaMetros: req.body.areaMetros,
-        codTipoVisita: req.body.codTipoVisita,
-        codEndereco: req.body.codEndereco
+router.put('/historico/:historicoId', (req, res) => {
+    const codigoHistorico = req.params.historicoId;
+    Historico.update({
+        codImovel: req.body.codImovel,
+        codCorretor: req.body.codCorretor,
+        dataNegociacao: req.body.dataNegociacao,
+        porcentualCommisao: req.body.porcentualCommisao
     }, {
         where: {
-            codVisita: codigoVisita
+            codHistorico: codigoHistorico
         }
     }).then(() => {
-        res.send('Visita atualizado com sucesso.');
+        res.send('Historico atualizado com sucesso.');
     }).catch((erro) => {
         res.send('Ocorreu um erro: ' + erro);
     });
 });
 
-router.delete('/visita/:visitaId', (req, res) => {
-    const codigoVisita = req.params.visitaId;
-    Visita.destroy({ where: { codVisita: codigoVisita } }).then(() => {
-        res.send('Visita removido com sucesso.');
+router.delete('/historico/:historicoId', (req, res) => {
+    const codigoHistorico = req.params.historicoId;
+    Historico.destroy({ where: { codHistorico: codigoHistorico } }).then(() => {
+        res.send('Historico removido com sucesso.');
     }).catch((erro) => {
         res.send('Ocorreu um erro: ' + erro);
     });

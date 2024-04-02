@@ -37,4 +37,6 @@ const Endereco = conexao.define('enderecos', {
     timestamps: false
 });
 
+Endereco.sync({ force: false });
+
 module.exports = Endereco;

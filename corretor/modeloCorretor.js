@@ -38,6 +38,6 @@ const Corretor = conexao.define('corretores', {
     timestamps: false
 });
 
-
+Corretor.sync({ force: false });
 
 module.exports = Corretor;

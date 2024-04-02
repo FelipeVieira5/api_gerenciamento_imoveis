@@ -40,4 +40,6 @@ const Historico = conexao.define('historicos', {
     timestamps: false
 });
 
+Historico.sync({ force: false });
+
 module.exports = Historico;

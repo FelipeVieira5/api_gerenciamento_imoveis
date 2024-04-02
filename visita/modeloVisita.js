@@ -36,4 +36,6 @@ const Visita = conexao.define('visitas', {
     timestamps: false
 });
 
+Visita.sync({ force: false });
+
 module.exports = Visita;
