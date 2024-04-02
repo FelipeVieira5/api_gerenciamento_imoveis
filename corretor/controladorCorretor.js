@@ -14,9 +14,10 @@ router.get('/corretor/:corretorId', async (req, res) => {
 
 router.post('/corretor', (req, res) => {
     Corretor.create({
-        descricao: req.body.descricao,
-        areaMetros: req.body.areaMetros,
-        codTipoCorretor: req.body.codTipoCorretor,
+        nome: req.body.nome,
+        CPF: req.body.CPF,
+        CNPJ: req.body.CNPJ,
+        dataNascimento: req.body.dataNascimento,
         codEndereco: req.body.codEndereco
     }).then(() => {
         res.send('Corretor cadastrado com sucesso.');
@@ -28,9 +29,10 @@ router.post('/corretor', (req, res) => {
 router.put('/corretor/:corretorId', (req, res) => {
     const codigoCorretor = req.params.corretorId;
     Corretor.update({
-        descricao: req.body.descricao,
-        areaMetros: req.body.areaMetros,
-        codTipoCorretor: req.body.codTipoCorretor,
+        nome: req.body.nome,
+        CPF: req.body.CPF,
+        CNPJ: req.body.CNPJ,
+        dataNascimento: req.body.dataNascimento,
         codEndereco: req.body.codEndereco
     }, {
         where: {
