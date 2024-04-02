@@ -40,8 +40,4 @@ const Imovel = conexao.define('imoveis', {
     timestamps: false
 });
 
-Imovel.sync({
-    alter: true
-});
-
 module.exports = Imovel;

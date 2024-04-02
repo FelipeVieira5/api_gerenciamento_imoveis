@@ -39,8 +39,5 @@ const Cliente = conexao.define('clientes', {
     timestamps: false
 });
 
-Cliente.sync({
-    alter: true
-});
 
 module.exports = Cliente;

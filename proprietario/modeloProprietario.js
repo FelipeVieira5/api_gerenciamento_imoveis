@@ -39,8 +39,4 @@ const Proprietario = conexao.define('Proprietario', {
     timestamps: false
 });
 
-Proprietario.sync({
-    alter: true
-});
-
 module.exports = Proprietario;
