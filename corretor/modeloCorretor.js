@@ -7,6 +7,7 @@ const Corretor = conexao.define('corretores', {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
+        autoIncrement: true
     },
     nome: {
         type: Sequelize.STRING(150),

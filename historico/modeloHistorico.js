@@ -9,6 +9,7 @@ const Historico = conexao.define('historicos', {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
+        autoIncrement: true
     },
     codImovel: {
         type: Sequelize.INTEGER,

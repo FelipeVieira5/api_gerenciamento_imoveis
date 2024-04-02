@@ -25,7 +25,7 @@ const Visita = conexao.define('visitas', {
         onDelete: 'CASCADE'   
     },
     visitaRealizada: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
         allowNull: false
     },
     dataVisita:{
